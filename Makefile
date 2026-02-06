@@ -12,6 +12,7 @@ debug:
 	@$(RUNNER) run python -m pdb $(NAME)
 
 clean:
+	@rm -rf src/*/__pycache__ .mypy_cache/ .venv/ uv.lock
 
 lint:
 	@flake8 src/
@@ -21,3 +22,4 @@ lint-strict:
 	@flake8 src/
 	@mypy src/ --strict
 
+.PHONY: install run debug clean lint lint-strict
