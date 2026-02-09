@@ -23,3 +23,4 @@ for r in range(len(g)):
                     (r >= len(g)-1 or (v >> 2) & 1 == g[r+1][c] & 1),
                     (c < 1 or (v >> 3) & 1 == (g[r][c-1] >> 1) & 1)]):
             print(f'Wrong encoding for ({c},{r})')
+print(f"file {sys.argv[1]} checked")
