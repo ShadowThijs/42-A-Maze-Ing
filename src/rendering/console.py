@@ -6,7 +6,7 @@ Renders the maze in the console
 
 from rendering.colors import unicode_color
 
-CELL_HEIGHT: int = 2
+CELL_HEIGHT: int = 1
 CELL_WIDTH: int  = 2
 
 CELL_CHAR: str   = ' '
@@ -26,7 +26,7 @@ def render_console(color: int = 9) -> None:
             elif (j == 0 or j == MAZE_WIDTH - 1):
                 print(unicode_color(color) + CELL_CHAR + RESET, end="")
             else:
-                print(CELL_CHAR * CELL_WIDTH, end="")
+                print(unicode_color(99) + CELL_CHAR * CELL_WIDTH  + RESET, end="")
             j += 1
         print()
         i += 1
