@@ -9,8 +9,8 @@ def main() -> None:
     """Main method."""
     dfs()
     maze1()
-    render_console(5)
-    render_mlx()
+    # render_console('rendering/mazes/AI_1.txt')
+    render_mlx('src/rendering/mazes/AI_1.txt')
     print("Hello from 42-a-maze-ing!")
 
 
