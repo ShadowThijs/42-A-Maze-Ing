@@ -13,7 +13,7 @@ CELL_CHAR: str   = ' '
 RESET: str       = u"\u001b[0m"
 
 MAZE_WIDTH=20
-MAZE_HEIGHT=20
+MAZE_HEIGHT=15
 
 def render_console(color: int = 9) -> None:
     """Render to console."""
@@ -26,7 +26,7 @@ def render_console(color: int = 9) -> None:
             elif (j == 0 or j == MAZE_WIDTH - 1):
                 print(unicode_color(color) + CELL_CHAR + RESET, end="")
             else:
-                print(unicode_color(99) + CELL_CHAR * CELL_WIDTH  + RESET, end="")
+                print(CELL_CHAR * CELL_WIDTH, end="")
             j += 1
         print()
         i += 1
