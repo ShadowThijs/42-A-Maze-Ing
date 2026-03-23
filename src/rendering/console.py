@@ -6,7 +6,7 @@ Renders the maze in the console using curses and box-drawing characters.
 import curses
 import random
 import time
-from typing import Optional
+from typing import Callable, Optional
 
 from rendering.parser import Maze, Wall, parse_file
 
@@ -100,6 +100,7 @@ path_color: int = curses.COLOR_GREEN
 show_path: bool = True
 maze: Optional[Maze] = None
 maze_path: str = ""
+generate_fn: Optional[Callable[[], None]] = None
 
 
 def _init_colors() -> None:
@@ -419,7 +420,7 @@ def _main_loop(stdscr: "curses.window") -> None:
     Args:
         stdscr: The curses window.
     """
-    global wall_color, border_color, path_color, show_path
+    global wall_color, border_color, path_color, show_path, maze
 
     curses.curs_set(0)
     _init_colors()
@@ -449,6 +450,9 @@ def _main_loop(stdscr: "curses.window") -> None:
             show_path = not show_path
         elif key == ord("g"):
             _loading_effect(stdscr)
+            if generate_fn is not None:
+                generate_fn()
+                maze = parse_file(maze_path)
         elif key == curses.KEY_RESIZE:
             pass
         else:
@@ -459,13 +463,19 @@ def _main_loop(stdscr: "curses.window") -> None:
         stdscr.refresh()
 
 
-def render_console(filepath: str) -> None:
+def render_console(
+    filepath: str,
+    regenerate: Optional[Callable[[], None]] = None,
+) -> None:
     """Render the maze in the console using curses.
 
     Args:
         filepath: Path to the maze file to render.
+        regenerate: Optional callback invoked when the user presses 'g'.
+            It should regenerate and rewrite the maze file at filepath.
     """
-    global maze, maze_path
+    global maze, maze_path, generate_fn
     maze_path = filepath
+    generate_fn = regenerate
     maze = parse_file(filepath)
     curses.wrapper(_main_loop)
