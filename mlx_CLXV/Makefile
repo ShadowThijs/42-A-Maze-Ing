@@ -22,7 +22,7 @@ INCLUDES=-I./src
 CFLAGS+= $(INCLUDES) $(VK_DEBUG) -fPIC -Wall -O3
 LDFLAGS+=
 
-CC=clang
+CC=gcc
 
 LIBS= -lxcb -lxcb-keysyms -lvulkan -lz -lbsd
 
