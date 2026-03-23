@@ -173,8 +173,59 @@ def _in_bounds(x: int, y: int, config: CONFIG) -> bool:
     return 0 <= x < config.Width and 0 <= y < config.Height
 
 
+def _place_digit(
+    grid: list[list[CELL]],
+    config: CONFIG,
+    cells: list[tuple[int, int]],
+    ox: int,
+    oy: int,
+) -> None:
+    """Freeze cells for one digit and open interior walls between them.
+
+    Each cell in *cells* is frozen with all walls closed first.  Then,
+    for every pair of grid-adjacent cells within the digit, the shared
+    wall is removed so the digit forms a single connected room.
+
+    Args:
+        grid: The maze grid (grid[col][row]).
+        config: Maze configuration.
+        cells: List of (col_offset, row_offset) relative to (ox, oy).
+        ox: Origin column of the digit pattern.
+        oy: Origin row of the digit pattern.
+    """
+    cell_set: set[tuple[int, int]] = set(cells)
+
+    # Freeze every cell in the digit with all walls closed.
+    for dc, dr in cells:
+        col, row = ox + dc, oy + dr
+        if _in_bounds(col, row, config):
+            grid[col][row].update_wall(True, True, True, True, True)
+
+    # Open the shared wall between adjacent cells inside the digit so the
+    # digit forms a single open room (no internal walls).
+    for dc, dr in cells:
+        col, row = ox + dc, oy + dr
+        if not _in_bounds(col, row, config):
+            continue
+        # East neighbour
+        if (dc + 1, dr) in cell_set:
+            ncol = ox + dc + 1
+            if _in_bounds(ncol, row, config):
+                grid[col][row].walls["E"] = False
+                grid[ncol][row].walls["W"] = False
+        # South neighbour
+        if (dc, dr + 1) in cell_set:
+            nrow = oy + dr + 1
+            if _in_bounds(col, nrow, config):
+                grid[col][row].walls["S"] = False
+                grid[col][nrow].walls["N"] = False
+
+
 def place42(grid: list[list[CELL]], config: CONFIG) -> bool:
-    """Place the '42' pattern as fully-closed cells in the maze centre.
+    """Place the '42' pattern as closed rooms in the maze centre.
+
+    Each digit is an isolated room: cells within the digit are open to
+    each other but completely walled off from the rest of the maze.
 
     Args:
         grid: The maze grid (grid[col][row]).
@@ -183,7 +234,7 @@ def place42(grid: list[list[CELL]], config: CONFIG) -> bool:
     Returns:
         True if the pattern was placed, False if maze is too small.
     """
-    min_w = 14
+    min_w = 10
     min_h = 7
     if config.Width < min_w or config.Height < min_h:
         print(
@@ -199,15 +250,8 @@ def place42(grid: list[list[CELL]], config: CONFIG) -> bool:
     two_x: int = cx + 1
     two_y: int = cy - 2
 
-    for dc, dr in FOUR_CELLS:
-        col, row = four_x + dc, four_y + dr
-        if _in_bounds(col, row, config):
-            grid[col][row].update_wall(True, True, True, True, True)
-
-    for dc, dr in TWO_CELLS:
-        col, row = two_x + dc, two_y + dr
-        if _in_bounds(col, row, config):
-            grid[col][row].update_wall(True, True, True, True, True)
+    _place_digit(grid, config, FOUR_CELLS, four_x, four_y)
+    _place_digit(grid, config, TWO_CELLS, two_x, two_y)
 
     return True
 
