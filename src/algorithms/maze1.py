@@ -97,28 +97,28 @@ def place42(grid: list[list[CELL]], config: CONFIG) -> list[list[CELL]]:
     grid[four_x+2][four_y+3].update_wall(False, True, False, True, True)
     grid[four_x+2][four_y+4].update_wall(False, True, True, True, True)
 
-    grid[two_x][two_y].update_wall(True, True, True, False, True)
-    grid[two_x][two_y].update_wall(True, False, True, False, True)
-    grid[two_x][two_y].update_wall(True, False, False, True, True)
-    grid[two_x][two_y].update_wall(False, True, False, True, True)
-    grid[two_x][two_y].update_wall(False, False, True, True, True)
-    grid[two_x][two_y].update_wall(True, False, True, False, True)
-    grid[two_x][two_y].update_wall(True, True, False, False, True)
-    grid[two_x][two_y].update_wall(False, True, False, True, True)
-    grid[two_x][two_y].update_wall(False, True, True, False, True)
-    grid[two_x][two_y].update_wall(True, False, True, False, True)
-    grid[two_x][two_y].update_wall(True, False, True, True, True)
+    grid[two_x][two_y].update_wall(True, True, True, False, True) # (0,0)
+    grid[two_x+1][two_y].update_wall(True, False, True, False, True) # (1,0)
+    grid[two_x+2][two_y].update_wall(True, False, False, True, True) # (2,0)
+    grid[two_x+2][two_y+1].update_wall(False, True, False, True, True) # (2,1)
+    grid[two_x+2][two_y+2].update_wall(False, False, True, True, True) # (2,2)
+    grid[two_x+1][two_y+2].update_wall(True, False, True, False, True) # (1,2)
+    grid[two_x][two_y+2].update_wall(True, True, False, False, True) # (0,2)
+    grid[two_x][two_y+3].update_wall(False, True, False, True, True) # (0,3)
+    grid[two_x][two_y+4].update_wall(False, True, True, False, True) # (0,4)
+    grid[two_x+1][two_y+4].update_wall(True, False, True, False, True) # (1,4)
+    grid[two_x+2][two_y+4].update_wall(True, False, True, True, True) # (2,4)
     return grid
 
 
-def close_border(grid: list[list[CELL]], config: CONFIG) -> list[list[CELL]]:
+def seal_border(grid: list[list[CELL]], config: CONFIG) -> list[list[CELL]]:
     """Makes sure the borders are closed"""
     max_x: int = config.Width
     max_y: int = config.Height
-    for i in range(0, max_x - 1):
+    for i in range(0, max_x):
         grid[i][0].walls["N"] = True
         grid[i][max_y - 1].walls["S"] = True
-    for i in range(0, max_y - 1):
+    for i in range(0, max_y):
         grid[0][i].walls["W"] = True
         grid[max_x - 1][i].walls["E"] = True
     return grid
@@ -132,5 +132,5 @@ def maze1(file_name: str) -> None:
     grid: list[list[CELL]] = [[CELL() for x in range(config.Height)]
                               for y in range(config.Width)]
     place42(grid, config)
-    close_border(grid, config)
+    seal_border(grid, config)
     print("Maze 1 algorithm")
