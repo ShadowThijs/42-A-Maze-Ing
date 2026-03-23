@@ -328,7 +328,7 @@ def _draw_maze(stdscr: "curses.window", m: Maze) -> None:
             if is_entry:
                 try:
                     stdscr.addstr(
-                        sy, sx, "EN",
+                        sy, sx, "ʘ",
                         curses.color_pair(COLOR_PAIR_ENTRY)
                         | curses.A_BOLD,
                     )
@@ -337,7 +337,7 @@ def _draw_maze(stdscr: "curses.window", m: Maze) -> None:
             elif is_exit:
                 try:
                     stdscr.addstr(
-                        sy, sx, "EX",
+                        sy, sx, "Ӿ",
                         curses.color_pair(COLOR_PAIR_EXIT)
                         | curses.A_BOLD,
                     )
