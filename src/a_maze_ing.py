@@ -6,9 +6,10 @@ Usage:
 
 import sys
 
-from algorithms.maze1 import CONFIG, generate_maze, parse_config, write_output
+from algorithms.maze import CONFIG, generate_maze, parse_config, write_output
 from algorithms.solve import bfs_solve
 from rendering import render_console
+import time
 
 
 def _run(config: CONFIG) -> None:
@@ -29,16 +30,11 @@ def _run(config: CONFIG) -> None:
         write_output(new_grid, config, new_solution)
 
     if config.Display == 1:
-        try:
-            from rendering import render_mlx
-            render_mlx(config.Output)
-        except ImportError:
-            print(
-                "MLX not available; falling back to console rendering.",
-                file=sys.stderr,
-            )
-            render_console(config.Output, regenerate)
+        print("renderingng with mlx has been disabled\n\n")
+        time.sleep(0.2)
+        render_console(config.Output, regenerate)
     else:
+        time.sleep(0.2)
         render_console(config.Output, regenerate)
 
 

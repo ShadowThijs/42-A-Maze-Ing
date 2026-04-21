@@ -5,7 +5,7 @@ Finds the shortest path from entry to exit using breadth-first search.
 
 from collections import deque
 
-from algorithms.maze1 import CELL, CONFIG, DELTA
+from algorithms.maze import CELL, CONFIG, DELTA
 
 
 def bfs_solve(

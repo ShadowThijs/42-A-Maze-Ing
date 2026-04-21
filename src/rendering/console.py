@@ -398,7 +398,7 @@ def _loading_effect(stdscr: "curses.window") -> None:
         except curses.error:
             pass
         stdscr.refresh()
-        time.sleep(0.3)
+        time.sleep(0.2)
 
 
 def _random_color(exclude: int = -1) -> int:

@@ -565,7 +565,7 @@ class MazeGenerator:
         return "\n".join(lines) + "\n"
 
 
-def maze1(file_name: str) -> None:
+def maze(file_name: str) -> None:
     """Run maze generation from a config file (legacy entry point).
 
     Args:
