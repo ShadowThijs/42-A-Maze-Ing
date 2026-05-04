@@ -1,0 +1,15 @@
+uv.lock
+.venv
+**/.venv
+.python-version
+.mypy_cache
+__pycache__
+**/__pycache__
+*.egg-info
+**/*.egg-info
+subject.md
+subject.pdf
+evaluation.md
+maze.txt
+.omc
+**/.omc

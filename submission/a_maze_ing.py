@@ -12,7 +12,7 @@ from rendering import render_console
 import time
 
 
-def _run(config: CONFIG) -> None:
+def run(config: CONFIG) -> None:
     """Generate, solve, write and render a maze.
 
     Args:
@@ -60,11 +60,10 @@ def main() -> None:
         sys.exit(1)
 
     try:
-        _run(config)
+        run(config)
     except OSError as exc:
         print(f"Error: {exc}", file=sys.stderr)
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()

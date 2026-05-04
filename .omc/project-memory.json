@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774284778800,
+  "lastScanned": 1777901935193,
   "projectRoot": "/home/thijs/projects/42_gits/42-A-Maze-Ing",
   "techStack": {
     "languages": [
@@ -51,142 +51,142 @@
   },
   "customNotes": [],
   "directoryMap": {
-    "mlx_CLXV": {
-      "path": "mlx_CLXV",
-      "purpose": null,
-      "fileCount": 8,
-      "lastAccessed": 1774284778794,
-      "keyFiles": [
-        "LICENSE",
-        "Makefile",
-        "README.md",
-        "configure.sh",
-        "libmlx.so"
-      ]
-    },
     "src": {
       "path": "src",
       "purpose": "Source code",
       "fileCount": 2,
-      "lastAccessed": 1774284778795,
+      "lastAccessed": 1777901935170,
       "keyFiles": [
         "a_maze_ing.py",
         "config.txt"
-      ]
-    },
-    "mlx_CLXV/src": {
-      "path": "mlx_CLXV/src",
-      "purpose": "Source code",
-      "fileCount": 36,
-      "lastAccessed": 1774284778797,
-      "keyFiles": [
-        "mlx.h",
-        "mlx_be_extra.c",
-        "mlx_be_extra.o"
       ]
     }
   },
   "hotPaths": [
     {
-      "path": "src/rendering/console.py",
-      "accessCount": 6,
-      "lastAccessed": 1774287378468,
+      "path": "submission/src/algorithms/maze.py",
+      "accessCount": 5,
+      "lastAccessed": 1777902698379,
       "type": "file"
     },
     {
-      "path": "src/algorithms/maze1.py",
-      "accessCount": 4,
-      "lastAccessed": 1774289311113,
-      "type": "file"
-    },
-    {
-      "path": "src/algorithms/solve.py",
-      "accessCount": 3,
-      "lastAccessed": 1774287604002,
-      "type": "file"
-    },
-    {
-      "path": "subject.pdf",
+      "path": "submission/Makefile",
       "accessCount": 2,
-      "lastAccessed": 1774286725261,
+      "lastAccessed": 1777902647743,
       "type": "file"
     },
     {
-      "path": "src/algorithms/__init__.py",
-      "accessCount": 2,
-      "lastAccessed": 1774287347374,
+      "path": "config.txt",
+      "accessCount": 1,
+      "lastAccessed": 1777902109503,
       "type": "file"
     },
     {
       "path": "src/a_maze_ing.py",
-      "accessCount": 2,
-      "lastAccessed": 1774287389385,
+      "accessCount": 1,
+      "lastAccessed": 1777902109593,
       "type": "file"
     },
     {
       "path": "Makefile",
-      "accessCount": 2,
-      "lastAccessed": 1774287421555,
-      "type": "file"
-    },
-    {
-      "path": "src/rendering/parser.py",
       "accessCount": 1,
-      "lastAccessed": 1774286739897,
-      "type": "file"
-    },
-    {
-      "path": "src/config.txt",
-      "accessCount": 1,
-      "lastAccessed": 1774286745848,
-      "type": "file"
-    },
-    {
-      "path": "src/rendering/__init__.py",
-      "accessCount": 1,
-      "lastAccessed": 1774286746963,
-      "type": "file"
-    },
-    {
-      "path": "output_validator.py",
-      "accessCount": 1,
-      "lastAccessed": 1774286747063,
+      "lastAccessed": 1777902109699,
       "type": "file"
     },
     {
       "path": "pyproject.toml",
       "accessCount": 1,
-      "lastAccessed": 1774286782791,
+      "lastAccessed": 1777902110003,
       "type": "file"
     },
     {
-      "path": "src/rendering/mlx.py",
+      "path": "src/config.txt",
       "accessCount": 1,
-      "lastAccessed": 1774286783315,
+      "lastAccessed": 1777902110058,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1777902110111,
+      "type": "file"
+    },
+    {
+      "path": "maze.txt",
+      "accessCount": 1,
+      "lastAccessed": 1777902115231,
+      "type": "file"
+    },
+    {
+      "path": "src/rendering/parser.py",
+      "accessCount": 1,
+      "lastAccessed": 1777902115263,
+      "type": "file"
+    },
+    {
+      "path": "src/rendering/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1777902115297,
+      "type": "file"
+    },
+    {
+      "path": "src/algorithms/solve.py",
+      "accessCount": 1,
+      "lastAccessed": 1777902115329,
+      "type": "file"
+    },
+    {
+      "path": "src/algorithms/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1777902115356,
       "type": "file"
     },
     {
       "path": "src/rendering/colors.py",
       "accessCount": 1,
-      "lastAccessed": 1774286783491,
+      "lastAccessed": 1777902115408,
       "type": "file"
     },
     {
-      "path": "mazegen_pkg/pyproject.toml",
+      "path": "src/algorithms/maze.py",
       "accessCount": 1,
-      "lastAccessed": 1774287430794,
+      "lastAccessed": 1777902116236,
       "type": "file"
     },
     {
-      "path": "mazegen_pkg/mazegen/__init__.py",
+      "path": "src/rendering/console.py",
       "accessCount": 1,
-      "lastAccessed": 1774287476757,
+      "lastAccessed": 1777902116732,
       "type": "file"
     },
     {
-      "path": "mazegen_pkg/README.md",
+      "path": "submission/a_maze_ing.py",
       "accessCount": 1,
-      "lastAccessed": 1774287488960,
+      "lastAccessed": 1777902637424,
+      "type": "file"
+    },
+    {
+      "path": "submission/config.txt",
+      "accessCount": 1,
+      "lastAccessed": 1777902637964,
+      "type": "file"
+    },
+    {
+      "path": "submission/mazegen_pkg/pyproject.toml",
+      "accessCount": 1,
+      "lastAccessed": 1777902736894,
+      "type": "file"
+    },
+    {
+      "path": "submission/mazegen_pkg/README.md",
+      "accessCount": 1,
+      "lastAccessed": 1777902737277,
+      "type": "file"
+    },
+    {
+      "path": "submission/mazegen_pkg/mazegen/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1777902737639,
       "type": "file"
     }
   ],
